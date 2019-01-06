@@ -1,0 +1,38 @@
+:host {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 10000000;
+
+  .nge-slides {
+    &.progress-bar {
+      display: flex;
+      flex-direction: row;
+      margin-top: -10px;
+      height: 10px;
+      transition: height 0.25s;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+
+      .progress-notch {
+        flex-grow: 1;
+        background-color: #bdbdbd;
+
+        &:hover {
+          -webkit-filter: brightness(125%);
+          filter: brightness(125%);
+        }
+      }
+
+      &:hover {
+        margin-top: -25px;
+        height: 25px;
+        transition: height 0.75s;
+      }
+    }
+  }
+}

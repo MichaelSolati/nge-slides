@@ -2,6 +2,7 @@ import { AfterViewInit, Component, HostListener, Input, ViewChild, ElementRef, V
 
 import { SlideBase } from '../shared/slide-base';
 import { SlideComponents } from '../shared/slide-components';
+import { SlidesProgressBarComponent } from '../slides-progress-bar/slides-progress-bar.component';
 
 enum KEY_CODE {
   PAGE_UP = 33,
@@ -26,6 +27,7 @@ export class SlidesWrapperComponent implements AfterViewInit {
   @Input() set hashtag(value: string) {
     this._hashtag = value;
   }
+  private _progressBar: SlidesProgressBarComponent;
   private _slides: SlideBase[] = [];
   @ViewChild('slideWrapper') slideWrapper: ElementRef;
 
@@ -33,6 +35,8 @@ export class SlidesWrapperComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const dom = this.slideWrapper.nativeElement as HTMLElement;
+    this._progressBar = <SlidesProgressBarComponent><any>dom.querySelector(SlidesProgressBarComponent.selector);
+    this._progressBar.wrapper = this;
     const selector = SlideComponents.map((s) => s.selector).join(', ');
     this._slides = <SlideBase[]><any[]>Array.from(dom.querySelectorAll(selector));
     this._slides.forEach((slide) => slide.show = false);
@@ -74,6 +78,11 @@ export class SlidesWrapperComponent implements AfterViewInit {
         history.pushState(null, null, '#' + slide);
       } else {
         location.hash = '#';
+      }
+
+      if (this._progressBar) {
+        this._progressBar.count = this._slides.length;
+        this._progressBar.active = this._activeSlide;
       }
     }
   }

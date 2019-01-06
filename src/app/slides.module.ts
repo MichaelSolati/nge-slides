@@ -3,10 +3,12 @@ import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { SlideTitleComponent } from './slide-title/slide-title.component';
+import { SlidesProgressBarComponent } from './slides-progress-bar/slides-progress-bar.component';
 import { SlidesWrapperComponent } from './slides-wrapper/slides-wrapper.component';
 
 const COMPONENTS: any[] = [
   SlideTitleComponent,
+  SlidesProgressBarComponent,
   SlidesWrapperComponent
 ];
 

@@ -1,0 +1,3 @@
+<div class="nge-slides progress-bar" *ngIf="count">
+  <div *ngFor="let i of counter" class="nge-slides progress-notch" [class.secondary]="i <= active" (click)="goTo(i)"></div>
+</div>
