@@ -4,6 +4,16 @@ $primary: #ffffff;
 $secondary: #f50057;
 $text: #000000;
 
+@keyframes showSlide {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 :host {
   height: $height;
   width: $width;
@@ -49,6 +59,20 @@ $text: #000000;
     font-size: 1.25rem;
     font-weight: bolder;
     letter-spacing: 0.009375rem;
+  }
+
+  &.slide {
+    background-color: $primary;
+    color: $text;
+    background: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: $height;
+    width: $width;
+    animation: showSlide 1s ease-in-out both;
   }
 
   &.handle {

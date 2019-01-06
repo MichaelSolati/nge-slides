@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, HostListener, Input, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 
+import { SlideBase } from '../shared/slide-base';
+import { SlideComponents } from '../shared/slide-components';
+
 enum KEY_CODE {
   PAGE_UP = 33,
   PAGE_DOWN = 34,
@@ -13,7 +16,7 @@ enum KEY_CODE {
   styleUrls: ['./slides-wrapper.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class SlidesWrapperComponent {
+export class SlidesWrapperComponent implements AfterViewInit {
   private _activeSlide = 0;
   private _handle: string;
   @Input() set handle(value: string) {
@@ -23,10 +26,30 @@ export class SlidesWrapperComponent {
   @Input() set hashtag(value: string) {
     this._hashtag = value;
   }
-  private _slides: any[] = [];
+  private _slides: SlideBase[] = [];
   @ViewChild('slideWrapper') slideWrapper: ElementRef;
 
   constructor() { }
+
+  ngAfterViewInit() {
+    const dom = this.slideWrapper.nativeElement as HTMLElement;
+    const selector = SlideComponents.map((s) => s.selector).join(', ');
+    this._slides = <SlideBase[]><any[]>Array.from(dom.querySelectorAll(selector));
+    this._slides.forEach((slide) => slide.show = false);
+
+    if (window.location.hash) {
+      const hash = Number(window.location.hash.replace('#', ''));
+      if (!isNaN(hash) && hash > 0 && hash <= this._slides.length && this._slides.length) {
+        this.slide = hash;
+      } else {
+        this.slide = 0;
+      }
+    } else {
+      if (this._slides.length) {
+        this.slide = 0;
+      }
+    }
+  }
 
   static get selector(): string {
     return 'nge-slides-wrapper';
