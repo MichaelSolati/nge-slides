@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, HostListener, Input, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 
-import { SlideBase } from '../shared/slide-base';
-import { SlideComponents } from '../shared/slide-components';
-import { SlidesProgressBarComponent } from '../slides-progress-bar/slides-progress-bar.component';
+import { SlideBase } from '../slide-base';
+import { SlidesProgressBarComponent, SELECTORS, SLIDE_COMPONENTS } from '../COMPONENTS';
 
 enum KEY_CODE {
   PAGE_UP = 33,
@@ -35,9 +34,9 @@ export class SlidesWrapperComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const dom = this.slideWrapper.nativeElement as HTMLElement;
-    this._progressBar = <SlidesProgressBarComponent><any>dom.querySelector(SlidesProgressBarComponent.selector);
+    this._progressBar = <SlidesProgressBarComponent><any>dom.querySelector(SELECTORS[SlidesProgressBarComponent.name]);
     this._progressBar.wrapper = this;
-    const selector = SlideComponents.map((s) => s.selector).join(', ');
+    const selector = SLIDE_COMPONENTS.map((s) => SELECTORS[s.name]).join(', ');
     this._slides = <SlideBase[]><any[]>Array.from(dom.querySelectorAll(selector));
     this._slides.forEach((slide) => slide.show = false);
 
@@ -53,10 +52,6 @@ export class SlidesWrapperComponent implements AfterViewInit {
         this.slide = 0;
       }
     }
-  }
-
-  static get selector(): string {
-    return 'nge-slides-wrapper';
   }
 
   get handle(): string {

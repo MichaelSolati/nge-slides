@@ -2,21 +2,7 @@ import { Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { SlideComponent } from './slide/slide.component';
-import { SlideBlankComponent } from './slide-blank/slide-blank.component';
-import { SlideSectionComponent } from './slide-section/slide-section.component';
-import { SlideTitleComponent } from './slide-title/slide-title.component';
-import { SlidesProgressBarComponent } from './slides-progress-bar/slides-progress-bar.component';
-import { SlidesWrapperComponent } from './slides-wrapper/slides-wrapper.component';
-
-const COMPONENTS: any[] = [
-  SlideComponent,
-  SlideBlankComponent,
-  SlideSectionComponent,
-  SlideTitleComponent,
-  SlidesProgressBarComponent,
-  SlidesWrapperComponent
-];
+import { COMPONENTS, SELECTORS } from './COMPONENTS';
 
 @NgModule({
   imports: [
@@ -30,6 +16,6 @@ export class SlidesModule {
   constructor(private _injector: Injector) { }
 
   ngDoBootstrap() {
-    COMPONENTS.forEach(c => customElements.define(c.selector, createCustomElement(c, { injector: this._injector })));
+    COMPONENTS.forEach(c => customElements.define(SELECTORS[c.name], createCustomElement(c, { injector: this._injector })));
   }
 }

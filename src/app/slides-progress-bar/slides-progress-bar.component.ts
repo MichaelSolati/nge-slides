@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { SlidesWrapperComponent } from '../slides-wrapper/slides-wrapper.component';
+import { SlidesWrapperComponent } from '../COMPONENTS';
 
 @Component({
   selector: 'nge-slides-progress-bar',
@@ -20,17 +20,12 @@ export class SlidesProgressBarComponent {
     this._counter = Array(this._count).fill(0).map((x: number, i: number) => i);
   }
   private _counter: number[] = [];
-
   private _wrapper: SlidesWrapperComponent;
   @Input() set wrapper(value: SlidesWrapperComponent) {
     this._wrapper = value;
   }
 
   constructor() { }
-
-  static get selector(): string {
-    return 'nge-slides-progress-bar';
-  }
 
   get active(): number {
     return this._active;

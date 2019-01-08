@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { SlideBase } from '../shared/slide-base';
+import { SlideBase } from '../slide-base';
 
 @Component({
   selector: 'nge-slide',
@@ -16,10 +16,6 @@ export class SlideComponent extends SlideBase {
 
   constructor(_ds: DomSanitizer) {
     super(_ds);
-  }
-
-  static get selector(): string {
-    return 'nge-slide';
   }
 
   get content(): string {

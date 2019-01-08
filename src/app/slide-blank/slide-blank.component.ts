@@ -19,10 +19,6 @@ export class SlideBlankComponent {
 
   constructor(private _sanitizer: DomSanitizer) { }
 
-  static get selector(): string {
-    return 'nge-slide-blank';
-  }
-
   get show(): boolean {
     return this._show;
   }
