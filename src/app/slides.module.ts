@@ -2,12 +2,14 @@ import { Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { SlideComponent } from './slide/slide.component';
 import { SlideSectionComponent } from './slide-section/slide-section.component';
 import { SlideTitleComponent } from './slide-title/slide-title.component';
 import { SlidesProgressBarComponent } from './slides-progress-bar/slides-progress-bar.component';
 import { SlidesWrapperComponent } from './slides-wrapper/slides-wrapper.component';
 
 const COMPONENTS: any[] = [
+  SlideComponent,
   SlideSectionComponent,
   SlideTitleComponent,
   SlidesProgressBarComponent,

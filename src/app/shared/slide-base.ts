@@ -7,15 +7,6 @@ export class SlideBase {
     this._backgroundImg = value;
   }
 
-  private _content = true;
-  @Input() set content(value: boolean) {
-    if (typeof value === 'string' && value === 'false') {
-      this._content = false;
-    } else {
-      this._content = Boolean(value);
-    }
-  }
-
   private _show = false;
   @Input() set show(value: boolean) {
     if (typeof value === 'string' && value === 'false') {
@@ -31,10 +22,6 @@ export class SlideBase {
   }
 
   constructor(private _sanitizer: DomSanitizer) { }
-
-  get content(): boolean {
-    return this._content;
-  }
 
   get show(): boolean {
     return this._show;

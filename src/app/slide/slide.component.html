@@ -1,0 +1,7 @@
+<div *ngIf="show" class="nge-slides slide" [style.background-image]="backgroundImage()">
+  <h3 *ngIf="title" class="nge-slides title text">{{ title }}</h3>
+  <div class="nge-slides content text">
+    <p *ngIf="content">{{ content }}</p>
+    <ng-content></ng-content>
+  </div>
+</div>
