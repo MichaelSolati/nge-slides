@@ -1,27 +1,37 @@
-# NgeSlides
+# Angular Elements Slides
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+This is a sample library of Angular Elements components geared for a slideshow. Doesn't play well in Angular 2+ applications, but should work with other framworks (tested with vanilla HTML/JS and Vue).
 
-## Development server
+## Downloading
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular Elements Slides is available via NPM:
 
-## Code scaffolding
+```bash
+npm install nge-slides
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Or you can use Angular Elements Slides via CDN:
 
-## Build
+```HTML
+<script src="https://unpkg.com/nge-slides@0.0.0/nge-slides.js"></script>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Example Usage
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```HTML
+<!-- Required wrapper for all slides as well as progress bar -->
+<nge-slides-wrapper>
+  <nge-slide-title title="Angular Element Slides" subtitle="Web Components Made Easy"></nge-slide-title>
+  <nge-slide-section title="Section Slide"></nge-slide-section>
+  <nge-slide title="Slide 3" content="Content can be defined via an attribute"></nge-slide>
+  <nge-slide title="Slide 4">
+    <p>Or you can put your content in as HTML</p>
+  </nge-slide>
+  <nge-slide-blank>
+    <p>A blank slide has little to no properties</p>
+    <p>All it's designed to be is an HTML passthrough</p>
+  </nge-slide-blank>
+  <nge-slide-title title="Goodbye"></nge-slide-title>
+  <nge-slides-progress-bar></nge-slides-progress-bar>
+</nge-slides-wrapper>
+```

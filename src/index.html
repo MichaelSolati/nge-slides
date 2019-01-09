@@ -6,21 +6,62 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
 </head>
 <body>
-  <nge-slides-wrapper>
-    <nge-slide-title title="Angular Element Slides" subtitle="Web Components Made Easy"></nge-slide-title>
-    <nge-slide-section title="Section Slide"></nge-slide-section>
-    <nge-slide title="Slide 3" content="Content can be defined via an attribute"></nge-slide>
-    <nge-slide title="Slide 4">
-      <p>Or you can put your content in as HTML</p>
-    </nge-slide>
-    <nge-slide-blank>
-      <p>A blank slide has little to no properties</p>
-      <p>All it's designed to be is an HTML passthrough</p>
-    </nge-slide-blank>
-    <nge-slide-title title="Slide 6"></nge-slide-title>
-    <nge-slides-progress-bar></nge-slides-progress-bar>
-  </nge-slides-wrapper>
+  <div id="vue-app">
+    <nge-slides-wrapper :handle="handle" :hashtag="hashtag">
+      <nge-slide-title :title="slides[0].title" :subtitle="slides[0].subtitle"></nge-slide-title>
+      <nge-slide-section :title="slides[1].title"></nge-slide-section>
+      <nge-slide :title="slides[2].title" :content="slides[2].content"></nge-slide>
+      <nge-slide :title="slides[3].title">
+        <p>Or you can put your content in as HTML</p>
+      </nge-slide>
+      <nge-slide-blank>
+        <p>A blank slide has little to no properties</p>
+        <p>All it's designed to be is an HTML passthrough</p>
+      </nge-slide-blank>
+      <nge-slide-title :title="slides[5].title"></nge-slide-title>
+      <nge-slides-progress-bar></nge-slides-progress-bar>
+    </nge-slides-wrapper>
+  </div>
+  <script>
+    Vue.config.ignoredElements = [
+      'nge-slides-wrapper',
+      'nge-slide-title',
+      'nge-slide-section',
+      'nge-slide',
+      'nge-slide-blank',
+      'nge-slides-progress-bar'
+    ];
+
+    const vm = new Vue({
+      el: '#vue-app',
+      data: {
+        handle: '@MichaelSolati',
+        hashtag: '#angular',
+        slides: [
+        {
+          title: 'Angular Element Slides',
+          subtitle: 'Web Components Made Easy'
+        },
+        {
+          title: 'Section Slide'
+        },
+        {
+          title: 'Slide 3',
+          content: 'Content can be defined via an attribute'
+        },
+        {
+          title: 'Slide 4'
+        },
+        {},
+        {
+          title: 'Goodbye'
+        }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,15 +1,32 @@
 {
   "name": "nge-slides",
+  "description": "Sample library of Angular Elements components geared for a slideshow",
   "version": "0.0.0",
+  "author": "Michael Solati mkslt04@gmail.com",
+  "homepage": "https://github.com/MichaelSolati/nge-slides/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelSolati/nge-slides.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MichaelSolati/nge-slides/issues"
+  },
+  "readme": "README.md",
+  "license": "MIT",
+  "keywords": [
+    "angular elements",
+    "custom elements",
+    "web components",
+    "slideshow"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "sh ./build.sh",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
