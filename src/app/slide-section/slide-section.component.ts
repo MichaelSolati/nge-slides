@@ -12,4 +12,8 @@ export class SlideSectionComponent extends SlideBase {
   constructor(_ds: DomSanitizer) {
     super(_ds);
   }
+
+  static get selector(): string {
+    return 'nge-slide-section';
+  }
 }

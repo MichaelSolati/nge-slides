@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { SlidesWrapperComponent } from '../COMPONENTS';
+import { SlidesWrapperComponent } from '../slides-wrapper/slides-wrapper.component';
 
 @Component({
   selector: 'nge-slides-progress-bar',
@@ -26,6 +26,10 @@ export class SlidesProgressBarComponent {
   }
 
   constructor() { }
+
+  static get selector(): string {
+    return 'nge-slides-progress-bar';
+  }
 
   get active(): number {
     return this._active;

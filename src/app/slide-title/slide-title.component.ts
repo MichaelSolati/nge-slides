@@ -18,6 +18,10 @@ export class SlideTitleComponent extends SlideBase {
     super(_ds);
   }
 
+  static get selector(): string {
+    return 'nge-slide-title';
+  }
+
   get subtitle(): string {
     return this._subtitle;
   }

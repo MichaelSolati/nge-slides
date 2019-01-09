@@ -1,7 +1,19 @@
 import { AfterViewInit, Component, HostListener, Input, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 
 import { SlideBase } from '../slide-base';
-import { SlidesProgressBarComponent, SELECTORS, SLIDE_COMPONENTS } from '../COMPONENTS';
+import { SlideComponent } from '../slide/slide.component';
+import { SlideBlankComponent } from '../slide-blank/slide-blank.component';
+import { SlideSectionComponent } from '../slide-section/slide-section.component';
+import { SlideTitleComponent } from '../slide-title/slide-title.component';
+import { SlidesProgressBarComponent } from '../slides-progress-bar/slides-progress-bar.component';
+
+
+export const SLIDE_COMPONENTS: any[] = [
+  SlideComponent,
+  SlideBlankComponent,
+  SlideSectionComponent,
+  SlideTitleComponent,
+];
 
 enum KEY_CODE {
   PAGE_UP = 33,
@@ -34,24 +46,22 @@ export class SlidesWrapperComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const dom = this.slideWrapper.nativeElement as HTMLElement;
-    this._progressBar = <SlidesProgressBarComponent><any>dom.querySelector(SELECTORS[SlidesProgressBarComponent.name]);
+    this._progressBar = <SlidesProgressBarComponent><any>dom.querySelector(SlidesProgressBarComponent.selector);
     this._progressBar.wrapper = this;
-    const selector = SLIDE_COMPONENTS.map((s) => SELECTORS[s.name]).join(', ');
+    const selector = SLIDE_COMPONENTS.map((s) => s.selector).join(', ');
     this._slides = <SlideBase[]><any[]>Array.from(dom.querySelectorAll(selector));
     this._slides.forEach((slide) => slide.show = false);
 
     if (window.location.hash) {
       const hash = Number(window.location.hash.replace('#', ''));
-      if (!isNaN(hash) && hash > 0 && hash <= this._slides.length && this._slides.length) {
-        this.slide = hash;
-      } else {
-        this.slide = 0;
-      }
-    } else {
-      if (this._slides.length) {
-        this.slide = 0;
-      }
+      this.slide = (!isNaN(hash) && hash > 0 && hash <= this._slides.length && this._slides.length) ? hash : 0;
+    } else if (this._slides.length) {
+      this.slide = 0;
     }
+  }
+
+  static get selector(): string {
+    return 'nge-slides-wrapper';
   }
 
   get handle(): string {

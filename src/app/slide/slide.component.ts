@@ -18,6 +18,10 @@ export class SlideComponent extends SlideBase {
     super(_ds);
   }
 
+  static get selector(): string {
+    return 'nge-slide';
+  }
+
   get content(): string {
     return this._content;
   }
