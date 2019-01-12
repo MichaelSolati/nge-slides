@@ -2,6 +2,7 @@
   "name": "nge-slides",
   "description": "Sample library of Angular Elements components geared for a slideshow",
   "version": "0.0.0",
+  "main": "nge-slides.js",
   "author": "Michael Solati mkslt04@gmail.com",
   "homepage": "https://github.com/MichaelSolati/nge-slides/",
   "repository": {
@@ -19,13 +20,23 @@
     "web components",
     "slideshow"
   ],
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "nge-slides.js",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "sh ./build.sh",
+    "build": "node build.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "release:major": "changelog -M && git add . && git commit -m 'chore(release): major version release' && npm version major",
+    "release:minor": "changelog -m && git add . && git commit -m 'chore(release): minor version release' && npm version minor",
+    "release:patch": "changelog -p && git add . && git commit -m 'chore(release): patch version release' && npm version patch"
   },
   "dependencies": {
     "@angular/animations": "~7.1.0",
@@ -52,6 +63,8 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "concat": "^1.0.3",
+    "generate-changelog": "^1.7.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
