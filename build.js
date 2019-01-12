@@ -24,7 +24,7 @@ concat(files, 'dist/nge-slides.js').then(() => {
   fs.writeFileSync('dist/package.json', JSON.stringify(packageJson));
 
   console.log('Copy over markdown files');
-  // fs.copyFileSync('CHANGELOG.md', 'dist/CHANGELOG.md');
+  fs.copyFileSync('CHANGELOG.md', 'dist/CHANGELOG.md');
   fs.copyFileSync('LICENSE.md', 'dist/LICENSE.md');
   fs.copyFileSync('README.md', 'dist/README.md');
 
