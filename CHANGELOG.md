@@ -1,0 +1,25 @@
+### 0.1.0 (2019-01-12)
+
+##### Build System / Dependencies
+
+*  use node script for build process ([ed75d8dd](https://github.com/MichaelSolati/nge-slides/commit/ed75d8dd6f399d916808e822c0f28c9f14a89c5b))
+*  create build script and set up folder for npm distribution ([c5618f6a](https://github.com/MichaelSolati/nge-slides/commit/c5618f6a1cb0724ae8828f3c90054c8c56ccc593))
+
+##### Chores
+
+*  undo enum ([c2ddd27d](https://github.com/MichaelSolati/nge-slides/commit/c2ddd27decf37dcf3fc4bbd379b2c17c547e6546))
+
+##### New Features
+
+* **SlideBlankComponent:**  add blank slide component ([5ee34f9a](https://github.com/MichaelSolati/nge-slides/commit/5ee34f9a35a12d29b0459ab19c595d5e5ac9fa72))
+* **SlideComponent:**  add component for slide with title and body ([f1d24f9a](https://github.com/MichaelSolati/nge-slides/commit/f1d24f9a7dddd83bbdf444fbf5c25dff1213d6d2))
+* **SlideSectionComponent:**  add slide component for different sections ([cacdabbf](https://github.com/MichaelSolati/nge-slides/commit/cacdabbf3062dccc6ce5db4cf277dc499434981b))
+* **SlidesProgressBarComponent:**  add progress bar element ([0288c767](https://github.com/MichaelSolati/nge-slides/commit/0288c76758a029e2de67a1335e8645e318e7af5e))
+* **SlideTitleComponent:**  add title slide element ([55652ddd](https://github.com/MichaelSolati/nge-slides/commit/55652ddd84ccbcd5e5d3b486b681551cf706a182))
+* **SlidesWrapperComponent:**  build base for slides wrapper, the element that manages the slides ([76218aa4](https://github.com/MichaelSolati/nge-slides/commit/76218aa4b242c75842d1c56298d7458b868b46db))
+
+##### Refactors
+
+*  simplify components and remove zone.js ([189eb7e5](https://github.com/MichaelSolati/nge-slides/commit/189eb7e5da8a7713087be150e32a1b9634b1f631))
+*  move selectors to enum ([d05a4db4](https://github.com/MichaelSolati/nge-slides/commit/d05a4db4d376ad8524a6628468af7a41b3ca52e8))
+
