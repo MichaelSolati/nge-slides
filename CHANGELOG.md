@@ -1,3 +1,9 @@
+#### 0.1.1 (2019-01-12)
+
+##### Chores
+
+*  move some style and remove support for Angular ([9a16b9a2](https://github.com/MichaelSolati/nge-slides/commit/9a16b9a2c6ba7e80622e069d6d8056bcad96049e))
+
 ### 0.1.0 (2019-01-12)
 
 ##### Build System / Dependencies
