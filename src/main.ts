@@ -8,4 +8,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(SlidesModule).catch(err => console.log(err));
+platformBrowserDynamic().bootstrapModule(SlidesModule, { ngZone: 'noop' })
+  .catch(err => console.error(err));

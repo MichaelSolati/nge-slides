@@ -1,0 +1,77 @@
+$height: 100vh;
+$width: 100vw;
+$primary: #ffffff;
+$secondary: #f50057;
+$text: #000000;
+
+* {
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: lighter;
+  letter-spacing: -0.09375rem;
+}
+
+h2 {
+  font-size: 3.75rem;
+  font-weight: lighter;
+  letter-spacing: -0.03125rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0rem;
+}
+
+h4 {
+  font-size: 2.125rem;
+  font-weight: normal;
+  letter-spacing: 0.015625rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+  font-weight: bolder;
+  letter-spacing: 0.009375rem;
+}
+
+.nge-slides {
+  &.content {
+    font-size: 2.125rem;
+    font-weight: normal;
+    letter-spacing: 0.015625rem;
+  }
+
+  &.primary {
+    &:not(.text) {
+      background-color: $primary !important;
+    }
+
+    &.text {
+      color: $primary !important;
+    }
+  }
+
+  &.secondary {
+    &:not(.text) {
+      background-color: $secondary !important;
+    }
+
+    &.text {
+      color: $secondary !important;
+    }
+  }
+
+  &.text {
+    color: $text !important;
+  }
+}

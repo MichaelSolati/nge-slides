@@ -1,7 +1,46 @@
-<div *ngIf="show" class="nge-slides slide" [style.background-image]="backgroundImage()">
+<div *ngIf="show" class="nge-slides slide" [ngClass]="type" [style.background-image]="backgroundImage()">
+  <ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'blank'">
+      <ng-container *ngTemplateOutlet="blankTemplate"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'section'">
+      <ng-container *ngTemplateOutlet="sectionTemplate"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'title'">
+        <ng-container *ngTemplateOutlet="titleTemplate"></ng-container>
+      </ng-container>
+    <ng-container *ngSwitchDefault>
+      <ng-container *ngTemplateOutlet="defaultTemplate"></ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+
+<!-- Blank slide template -->
+<ng-template #blankTemplate>
+  <ng-container *ngTemplateOutlet="ngContentTemplate"></ng-container>
+</ng-template>
+
+<!-- Section slide template -->
+<ng-template #sectionTemplate>
+  <h2 *ngIf="title" class="nge-slides title text">{{ title }}</h2>
+</ng-template>
+
+<!-- Title slide template -->
+<ng-template #titleTemplate>
+    <h1 *ngIf="title" class="nge-slides title text">{{ title }}</h1>
+    <h2 *ngIf="subtitle" class="nge-slides subtitle text">{{ subtitle }}</h2>
+  </ng-template>
+
+<!-- Default slide template -->
+<ng-template #defaultTemplate>
   <h3 *ngIf="title" class="nge-slides title text">{{ title }}</h3>
   <div class="nge-slides content text">
     <p *ngIf="content">{{ content }}</p>
-    <ng-content></ng-content>
+    <ng-container *ngTemplateOutlet="ngContentTemplate"></ng-container>
   </div>
-</div>
+</ng-template>
+
+<!-- Template for <ng-content></ng-content> -->
+<ng-template #ngContentTemplate>
+  <ng-content></ng-content>
+</ng-template>

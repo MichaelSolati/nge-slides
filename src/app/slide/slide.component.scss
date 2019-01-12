@@ -1,7 +1,54 @@
-div {
-  .nge-slides.content {
-    font-size: 2.125rem;
-    font-weight: normal;
-    letter-spacing: 0.015625rem;
+@import '../styles.scss';
+
+@keyframes showSlide {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+div.nge-slides.slide {
+  background-color: $primary;
+  color: $text;
+  background: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 16px;
+  height: calc(100% - 32px);
+  width: calc(100% - 32px);
+  animation: showSlide 1s ease-in-out both;
+
+  &.blank {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  &.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    * {
+      text-align: center;
+    }
+  }
+
+  &.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    * {
+      text-align: center;
+    }
   }
 }

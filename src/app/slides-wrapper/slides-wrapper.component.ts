@@ -1,19 +1,11 @@
-import { AfterViewInit, Component, HostListener, Input, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy, Component, ContentChild,
+  ContentChildren, ElementRef, forwardRef, HostListener, Input, QueryList, ViewChild, ViewEncapsulation
+} from '@angular/core';
 
-import { SlideBase } from '../slide-base';
+import { SlidesModule } from '../slides.module';
 import { SlideComponent } from '../slide/slide.component';
-import { SlideBlankComponent } from '../slide-blank/slide-blank.component';
-import { SlideSectionComponent } from '../slide-section/slide-section.component';
-import { SlideTitleComponent } from '../slide-title/slide-title.component';
 import { SlidesProgressBarComponent } from '../slides-progress-bar/slides-progress-bar.component';
-
-
-export const SLIDE_COMPONENTS: any[] = [
-  SlideComponent,
-  SlideBlankComponent,
-  SlideSectionComponent,
-  SlideTitleComponent,
-];
 
 enum KEY_CODE {
   PAGE_UP = 33,
@@ -26,30 +18,44 @@ enum KEY_CODE {
   selector: 'nge-slides-wrapper',
   templateUrl: './slides-wrapper.component.html',
   styleUrls: ['./slides-wrapper.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class SlidesWrapperComponent implements AfterViewInit {
   private _activeSlide = 0;
+
   private _handle: string;
   @Input() set handle(value: string) {
     this._handle = value;
+    this._cd.detectChanges();
   }
   private _hashtag: string;
   @Input() set hashtag(value: string) {
     this._hashtag = value;
+    this._cd.detectChanges();
   }
-  private _progressBar: SlidesProgressBarComponent;
-  private _slides: SlideBase[] = [];
-  @ViewChild('slideWrapper') slideWrapper: ElementRef;
 
-  constructor() { }
+  private _progressBar: SlidesProgressBarComponent;
+  @ContentChild(forwardRef(() => SlidesProgressBarComponent)) private _progressBarNg: SlidesProgressBarComponent;
+
+  private _slides: SlideComponent[] = [];
+  @ContentChildren(forwardRef(() => SlideComponent)) private _slidesNg: QueryList<SlideComponent>;
+
+  @ViewChild('slidesWrapper') private _slidesWrapper: ElementRef;
+
+  constructor(private _cd: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
-    const dom = this.slideWrapper.nativeElement as HTMLElement;
-    this._progressBar = <SlidesProgressBarComponent><any>dom.querySelector(SlidesProgressBarComponent.selector);
-    this._progressBar.wrapper = this;
-    const selector = SLIDE_COMPONENTS.map((s) => s.selector).join(', ');
-    this._slides = <SlideBase[]><any[]>Array.from(dom.querySelectorAll(selector));
+    if (SlidesModule.isAngular) {
+      this._bootstrapAngular();
+    } else {
+      this._bootstrapElements();
+    }
+
+    if (this._progressBar) {
+      this._progressBar.wrapper = this;
+    }
+
     this._slides.forEach((slide) => slide.show = false);
 
     if (window.location.hash) {
@@ -58,10 +64,6 @@ export class SlidesWrapperComponent implements AfterViewInit {
     } else if (this._slides.length) {
       this.slide = 0;
     }
-  }
-
-  static get selector(): string {
-    return 'nge-slides-wrapper';
   }
 
   get handle(): string {
@@ -111,6 +113,17 @@ export class SlidesWrapperComponent implements AfterViewInit {
         this.slide = this._activeSlide - 1;
       }
     }
+  }
+
+  private _bootstrapAngular(): void {
+    this._slides = this._slidesNg.toArray();
+    this._progressBar = this._progressBarNg;
+  }
+
+  private _bootstrapElements(): void {
+    const dom = this._slidesWrapper.nativeElement as HTMLElement;
+    this._slides = <SlideComponent[]><any[]>Array.from(dom.querySelectorAll('nge-slide'));
+    this._progressBar = <SlidesProgressBarComponent><any>dom.querySelector('nge-slides-progress-bar');
   }
 
   private _forward(): void {

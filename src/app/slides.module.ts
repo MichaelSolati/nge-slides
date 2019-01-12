@@ -3,17 +3,11 @@ import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { SlideComponent } from './slide/slide.component';
-import { SlideBlankComponent } from './slide-blank/slide-blank.component';
-import { SlideSectionComponent } from './slide-section/slide-section.component';
-import { SlideTitleComponent } from './slide-title/slide-title.component';
 import { SlidesProgressBarComponent } from './slides-progress-bar/slides-progress-bar.component';
 import { SlidesWrapperComponent } from './slides-wrapper/slides-wrapper.component';
 
-export const COMPONENTS: any[] = [
+const COMPONENTS = [
   SlideComponent,
-  SlideBlankComponent,
-  SlideSectionComponent,
-  SlideTitleComponent,
   SlidesProgressBarComponent,
   SlidesWrapperComponent
 ];
@@ -30,6 +24,17 @@ export class SlidesModule {
   constructor(private _injector: Injector) { }
 
   ngDoBootstrap() {
-    COMPONENTS.forEach(c => customElements.define(c.selector, createCustomElement(c, { injector: this._injector })));
+    const elements: [any, string][] = [
+      [SlideComponent, 'nge-slide'],
+      [SlidesProgressBarComponent, 'nge-slides-progress-bar'],
+      [SlidesWrapperComponent, 'nge-slides-wrapper']
+    ];
+    for (const [component, selector] of elements) {
+      customElements.define(selector, createCustomElement(component, { injector: this._injector }));
+    }
+  }
+
+  static get isAngular(): boolean {
+    return false;
   }
 }
