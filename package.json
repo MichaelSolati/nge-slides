@@ -1,7 +1,7 @@
 {
   "name": "nge-slides",
   "description": "Sample library of Angular Elements components geared for a slideshow",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "nge-slides.js",
   "author": "Michael Solati mkslt04@gmail.com",
   "homepage": "https://github.com/MichaelSolati/nge-slides/",
