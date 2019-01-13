@@ -1,6 +1,6 @@
 # Angular Elements Slides
 
-This is a sample library of Angular Elements components geared for a slideshow. Doesn't play well in Angular/React applications, but should work with other framworks (tested with vanilla HTML/JS and Vue).
+This is a sample library of Angular Elements components geared for a slideshow. Doesn't play well in Angular applications, but should work with other framworks (tested with vanilla HTML/JS, React and Vue).
 
 ## Downloading
 
@@ -10,10 +10,16 @@ Angular Elements Slides is available via NPM:
 npm install nge-slides
 ```
 
+Then just import the library into your code like so:
+
+```JavaScript
+import 'nge-slides';
+```
+
 Or you can use Angular Elements Slides via CDN:
 
 ```HTML
-<script src="https://unpkg.com/nge-slides@0.1.1/nge-slides.js"></script>
+<script src="https://unpkg.com/nge-slides@0.1.3/nge-slides.js"></script>
 ```
 
 ## Example Usage
