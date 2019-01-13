@@ -1,3 +1,9 @@
+#### 0.1.3 (2019-01-13)
+
+##### Documentation Changes
+
+* **README:**  add details about usage and React support ([a7bfd8bd](https://github.com/MichaelSolati/nge-slides/commit/a7bfd8bdd04e93f31f7899019c3ef217001cffb4))
+
 #### 0.1.2 (2019-01-13)
 
 ##### Refactors
