@@ -7,7 +7,7 @@ import { SlidesWrapperComponent } from '../slides-wrapper/slides-wrapper.compone
   templateUrl: './slides-progress-bar.component.html',
   styleUrls: ['./slides-progress-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class SlidesProgressBarComponent {
   private _active = 0;

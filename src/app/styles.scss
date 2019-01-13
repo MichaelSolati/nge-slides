@@ -51,25 +51,25 @@ $text: #000000;
 
   &.primary {
     &:not(.text) {
-      background-color: $primary !important;
+      background-color: $primary;
     }
 
     &.text {
-      color: $primary !important;
+      color: $primary;
     }
   }
 
   &.secondary {
     &:not(.text) {
-      background-color: $secondary !important;
+      background-color: $secondary;
     }
 
     &.text {
-      color: $secondary !important;
+      color: $secondary;
     }
   }
 
   &.text {
-    color: $text !important;
+    color: $text;
   }
 }

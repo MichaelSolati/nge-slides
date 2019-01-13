@@ -14,7 +14,10 @@ div.nge-slides.progress-bar {
 
   .progress-notch {
     flex-grow: 1;
-    background-color: #bdbdbd;
+
+    &:not(.secondary) {
+      background-color: #bdbdbd;
+    }
 
     &:hover {
       -webkit-filter: brightness(125%);

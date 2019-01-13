@@ -19,7 +19,7 @@ enum KEY_CODE {
   templateUrl: './slides-wrapper.component.html',
   styleUrls: ['./slides-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class SlidesWrapperComponent implements AfterViewInit {
   private _activeSlide = 0;

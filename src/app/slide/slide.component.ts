@@ -6,7 +6,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class SlideComponent {
   private _backgroundImg: string;

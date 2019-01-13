@@ -22,19 +22,19 @@
 
 <!-- Section slide template -->
 <ng-template #sectionTemplate>
-  <h2 *ngIf="title" class="nge-slides title text">{{ title }}</h2>
+  <h2 *ngIf="title" class="nge-slides text title">{{ title }}</h2>
 </ng-template>
 
 <!-- Title slide template -->
 <ng-template #titleTemplate>
-    <h1 *ngIf="title" class="nge-slides title text">{{ title }}</h1>
-    <h2 *ngIf="subtitle" class="nge-slides subtitle text">{{ subtitle }}</h2>
+    <h1 *ngIf="title" class="nge-slides text title">{{ title }}</h1>
+    <h2 *ngIf="subtitle" class="nge-slides text subtitle">{{ subtitle }}</h2>
   </ng-template>
 
 <!-- Default slide template -->
 <ng-template #defaultTemplate>
-  <h3 *ngIf="title" class="nge-slides title text">{{ title }}</h3>
-  <div class="nge-slides content text">
+  <h3 *ngIf="title" class="nge-slides text title">{{ title }}</h3>
+  <div class="nge-slides text content">
     <p *ngIf="content">{{ content }}</p>
     <ng-container *ngTemplateOutlet="ngContentTemplate"></ng-container>
   </div>
