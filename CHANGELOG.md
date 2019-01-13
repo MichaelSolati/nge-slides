@@ -1,3 +1,9 @@
+#### 0.1.2 (2019-01-13)
+
+##### Refactors
+
+*  move around style classes and change encapsulation to make more styling friendly ([1f08943a](https://github.com/MichaelSolati/nge-slides/commit/1f08943a6c984b5c91e63680c1d71df8b7ed72d6))
+
 #### 0.1.1 (2019-01-12)
 
 ##### Chores
