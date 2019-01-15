@@ -17,7 +17,6 @@ const COMPONENTS = [
     BrowserModule
   ],
   declarations: COMPONENTS,
-  exports: COMPONENTS,
   entryComponents: COMPONENTS
 })
 export class SlidesModule {
