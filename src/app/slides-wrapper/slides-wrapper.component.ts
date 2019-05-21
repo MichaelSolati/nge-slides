@@ -8,10 +8,10 @@ import { SlideComponent } from '../slide/slide.component';
 import { SlidesProgressBarComponent } from '../slides-progress-bar/slides-progress-bar.component';
 
 enum KEY_CODE {
-  PAGE_UP = 33,
-  PAGE_DOWN = 34,
-  LEFT_ARROW = 37,
-  RIGHT_ARROW = 39
+  PAGE_UP = 'ArrowUp',
+  PAGE_DOWN = 'ArrowDown',
+  LEFT_ARROW = 'ArrowLeft',
+  RIGHT_ARROW = 'ArrowRight'
 }
 
 @Component({
@@ -96,11 +96,22 @@ export class SlidesWrapperComponent implements AfterViewInit {
 
   @HostListener('window:keyup', ['$event'])
   public keyEvent(event: KeyboardEvent) {
-    if (event.keyCode === KEY_CODE.RIGHT_ARROW || event.keyCode === KEY_CODE.PAGE_DOWN) {
+    console.log(event);
+    if (event.key === KEY_CODE.RIGHT_ARROW || event.key === KEY_CODE.PAGE_DOWN) {
       this._forward();
-    } else if (event.keyCode === KEY_CODE.LEFT_ARROW || event.keyCode === KEY_CODE.PAGE_UP) {
+    } else if (event.key === KEY_CODE.LEFT_ARROW || event.key === KEY_CODE.PAGE_UP) {
       this._back();
     }
+  }
+
+  @HostListener('panleft')
+  public panleft() {
+    this._forward();
+  }
+
+  @HostListener('panright')
+  public panright() {
+    this._back();
   }
 
   private _back(): void {
