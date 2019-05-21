@@ -1,3 +1,21 @@
+### 0.2.0 (2019-05-21)
+
+##### Chores
+
+*  update dependencies ([d849b21e](https://github.com/MichaelSolati/nge-slides/commit/d849b21ea2c02cfb6691404bbcc421d81ffdd6f4))
+
+##### Documentation Changes
+
+* **README:**  update CDN url ([f25c58c7](https://github.com/MichaelSolati/nge-slides/commit/f25c58c7ba9756a3804814ac81270662164b0da8))
+
+##### New Features
+
+*  add swipe support ([6403efe9](https://github.com/MichaelSolati/nge-slides/commit/6403efe92948b788874e7a69c092ad2985beeac3))
+
+##### Refactors
+
+* **SlidesModule:**  remove unused ([c71c7741](https://github.com/MichaelSolati/nge-slides/commit/c71c7741520b3b3b07dc9a457680c2326e9a3654))
+
 #### 0.1.3 (2019-01-13)
 
 ##### Documentation Changes
