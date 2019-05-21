@@ -1,3 +1,9 @@
+#### 0.2.1 (2019-05-21)
+
+##### Refactors
+
+* **SlidesWrapperComponent:**  remove `console.log()` ([82f3d0a0](https://github.com/MichaelSolati/nge-slides/commit/82f3d0a028897b38cd8857a2c40436b8a78eb00e))
+
 ### 0.2.0 (2019-05-21)
 
 ##### Chores
