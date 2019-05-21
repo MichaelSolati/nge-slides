@@ -19,7 +19,7 @@ import 'nge-slides';
 Or you can use Angular Elements Slides via CDN:
 
 ```HTML
-<script src="https://unpkg.com/nge-slides@0.1.3/nge-slides.js"></script>
+<script src="https://unpkg.com/nge-slides/nge-slides.js"></script>
 ```
 
 ## Example Usage
