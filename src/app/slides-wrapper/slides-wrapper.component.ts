@@ -96,7 +96,6 @@ export class SlidesWrapperComponent implements AfterViewInit {
 
   @HostListener('window:keyup', ['$event'])
   public keyEvent(event: KeyboardEvent) {
-    console.log(event);
     if (event.key === KEY_CODE.RIGHT_ARROW || event.key === KEY_CODE.PAGE_DOWN) {
       this._forward();
     } else if (event.key === KEY_CODE.LEFT_ARROW || event.key === KEY_CODE.PAGE_UP) {
