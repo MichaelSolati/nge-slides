@@ -1,6 +1,6 @@
 {
   "name": "nge-slides",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Sample library of Angular Elements components geared for a slideshow",
   "main": "nge-slides.js",
   "scripts": {
