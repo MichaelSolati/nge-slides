@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SlidesProgressBarComponent } from './slides-progress-bar.component';
 
@@ -6,7 +6,7 @@ describe('SlidesProgressBarComponent', () => {
   let component: SlidesProgressBarComponent;
   let fixture: ComponentFixture<SlidesProgressBarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SlidesProgressBarComponent ]
     })

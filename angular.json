@@ -10,7 +10,8 @@
       "prefix": "nge",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "styleext": "scss",
+          "style": "scss"
         }
       },
       "architect": {
@@ -24,30 +25,40 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [],
             "styles": [],
-            "scripts": [{
-              "input": "node_modules/document-register-element/build/document-register-element.js"
-            }]
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js",
+                "inject": true
+              }
+            ],
+            "aot": true
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "none",
-              "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [{
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }]
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
             }
           }
         },

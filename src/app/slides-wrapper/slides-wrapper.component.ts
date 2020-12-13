@@ -36,12 +36,12 @@ export class SlidesWrapperComponent implements AfterViewInit {
   }
 
   private _progressBar: SlidesProgressBarComponent;
-  @ContentChild(forwardRef(() => SlidesProgressBarComponent)) private _progressBarNg: SlidesProgressBarComponent;
+  @ContentChild(forwardRef(() => SlidesProgressBarComponent), /* TODO: add static flag */ {}) private _progressBarNg: SlidesProgressBarComponent;
 
   private _slides: SlideComponent[] = [];
   @ContentChildren(forwardRef(() => SlideComponent)) private _slidesNg: QueryList<SlideComponent>;
 
-  @ViewChild('slidesWrapper') private _slidesWrapper: ElementRef;
+  @ViewChild('slidesWrapper', { static: true }) private _slidesWrapper: ElementRef;
 
   constructor(private _cd: ChangeDetectorRef) { }
 

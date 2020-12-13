@@ -11,9 +11,9 @@ execSync('ng build --prod');
 
 console.log('Merge JS files');
 const files = [
-  'dist/staging/runtime.js',
+  'dist/staging/runtime-es2015.js',
   'dist/staging/scripts.js',
-  'dist/staging/main.js'
+  'dist/staging/main-es2015.js'
 ];
 concat(files, 'dist/nge-slides.js').then(() => {
   console.log('Create package.json');
@@ -21,7 +21,7 @@ concat(files, 'dist/nge-slides.js').then(() => {
   delete packageJson['scripts'];
   delete packageJson['dependencies'];
   delete packageJson['devDependencies'];
-  fs.writeFileSync('dist/package.json', JSON.stringify(packageJson));
+  fs.writeFileSync('dist/package.json', JSON.stringify(packageJson, null, 2));
 
   console.log('Copy over markdown files');
   fs.copyFileSync('CHANGELOG.md', 'dist/CHANGELOG.md');
