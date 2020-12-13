@@ -1,3 +1,9 @@
+### 0.3.0 (2020-12-13)
+
+##### Chores
+
+*  update dependencies ([d567f6e2](https://github.com/MichaelSolati/nge-slides/commit/d567f6e27ecfbd898ae473fd1e34690e12111eb8))
+
 #### 0.2.1 (2019-05-21)
 
 ##### Refactors
